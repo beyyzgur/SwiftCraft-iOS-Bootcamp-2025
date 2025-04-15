@@ -1,0 +1,39 @@
+
+/* Class = "UIButton"; configuration.title = "Add to Cart"; ObjectID = "3eo-pT-0g8"; */
+"3eo-pT-0g8.configuration.title" = "SEPETE EKLE";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "3eo-pT-0g8"; */
+"3eo-pT-0g8.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "499,90₺"; ObjectID = "727-ho-keL"; */
+"727-ho-keL.text" = "499,90₺";
+
+/* Class = "UIButton"; configuration.title = "Eustoma"; ObjectID = "ESg-ey-VUB"; */
+"ESg-ey-VUB.configuration.title" = "Çayır Gentianı";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ESg-ey-VUB"; */
+"ESg-ey-VUB.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Rose"; ObjectID = "OId-Nr-ika"; */
+"OId-Nr-ika.configuration.title" = "Gül";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "OId-Nr-ika"; */
+"OId-Nr-ika.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Delivery On the Same Day"; ObjectID = "PeP-sY-hpH"; */
+"PeP-sY-hpH.text" = "Aynı Gün İçinde Teslimat";
+
+/* Class = "UILabel"; text = "Bouquet Boutique"; ObjectID = "avp-LK-ffG"; */
+"avp-LK-ffG.text" = "Düşler Buketi";
+
+/* Class = "UILabel"; text = "Make your own bouquet! Give a specialized gift to your loved ones.."; ObjectID = "bJB-E8-xSo"; */
+"bJB-E8-xSo.text" = "Buketini Kendin Oluştur! Sevdiklerine özel bir hediye ver...";
+
+/* Class = "UIButton"; configuration.title = "Peony"; ObjectID = "mcj-mf-ESX"; */
+"mcj-mf-ESX.configuration.title" = "Şakayık";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mcj-mf-ESX"; */
+"mcj-mf-ESX.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Select the flowers you want to remove:"; ObjectID = "quY-ga-ZDC"; */
+"quY-ga-ZDC.text" = "Buketten çıkartmak istediğiniz çiçekleri seçiniz:";
