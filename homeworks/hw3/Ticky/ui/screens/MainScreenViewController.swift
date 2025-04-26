@@ -11,9 +11,7 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var toDosTableView: UITableView!
     //var toDosList = [ToDoModel]()
     var toDosList: [ToDoModel] = []
-    var mainScreenViewModel = MainScreenViewModel() 
-    
-
+    var mainScreenViewModel = MainScreenViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +25,13 @@ class MainScreenViewController: UIViewController {
             self.toDosTableView.reloadData()
             
         })
-        }
-    
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear fonksiyonu çalıştı")
         mainScreenViewModel.fetchToDos()
         toDosTableView.reloadData()
-        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail" {
@@ -92,7 +89,7 @@ extension MainScreenViewController: UITableViewDelegate, UITableViewDataSource{
         let todo = toDosList[indexPath.row]
         
         cell.labelToDosTitle.text = todo.toDo_title
-        cell.isCellTicked(isTicked: todo.isDone)
+        cell.isCellTicked(isTicked: todo.isDone == 1)
         cell.onLabelTapped = { [weak self] in
             self?.performSegue(withIdentifier: "toDetail", sender: todo)
         }
@@ -100,9 +97,10 @@ extension MainScreenViewController: UITableViewDelegate, UITableViewDataSource{
             guard let self = self else {return}
             
             if let indexInMainList = self.toDosList.firstIndex(where: { $0.toDo_id == todo.toDo_id }) {
-                self.toDosList[indexInMainList].isDone.toggle()
+                self.toDosList[indexInMainList].isDone = self.toDosList[indexInMainList].isDone == 1 ? 0 : 1
                 self.mainScreenViewModel.isTicked(toDo_id: todo.toDo_id!)
-                self.toDosTableView.reloadData()
+//                self.toDosTableView.reloadData()
+                self.toDosTableView.reloadRows(at: [IndexPath(row: indexInMainList, section: 0)], with: .fade)
             }
             //self.toDosList[indexPath.row].isDone.toggle()
             //tableView.reloadRows(at: [indexPath], with: .fade)
@@ -136,5 +134,5 @@ extension MainScreenViewController: UITableViewDelegate, UITableViewDataSource{
             
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
-   }
+    }
 }

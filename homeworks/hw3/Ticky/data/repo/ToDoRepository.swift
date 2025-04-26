@@ -22,7 +22,7 @@ class ToDoRepository {
         db?.open()
         
         do{
-            try db!.executeUpdate("INSERT INTO toDos (name) VALUES (?)", values: [toDo_title])
+            try db!.executeUpdate("INSERT INTO toDos (name, isDone) VALUES (?,?)", values: [toDo_title, 0])
         }catch{
             print(error.localizedDescription)
         }
@@ -53,8 +53,9 @@ class ToDoRepository {
             while result.next() {
                 let toDo_id = Int(result.string(forColumn: "id"))!
                 let toDo_title = result.string(forColumn: "name")!
+                let toDo_isDone = Int(result.int(forColumn: "isDone"))
                 
-                let todo = ToDoModel(toDo_id: toDo_id, toDo_title: toDo_title)
+                let todo = ToDoModel(toDo_id: toDo_id, toDo_title: toDo_title, isDone: toDo_isDone)
                 
                 liste.append(todo)
             }
@@ -85,10 +86,11 @@ class ToDoRepository {
         do {
             try db!.executeUpdate("UPDATE toDos SET isDone = NOT isDone WHERE id = ?", values: [toDo_id])
         } catch {
-            print(error.localizedDescription)
+            print("Tick Update Error \(error.localizedDescription)")
         }
         
         db?.close()
+        print("Ticked func çalıştı")
     }
     
     func fetchToDos(){
@@ -102,8 +104,8 @@ class ToDoRepository {
             while result.next() {
                 let toDo_id = Int(result.string(forColumn: "id"))!
                 let toDo_title = result.string(forColumn: "name")!
-                
-                let todo = ToDoModel(toDo_id: toDo_id, toDo_title: toDo_title)
+                let isDone = Int(result.int(forColumn: "isDone"))
+                let todo = ToDoModel(toDo_id: toDo_id, toDo_title: toDo_title, isDone: isDone)
                 
                 liste.append(todo)
             }
@@ -116,4 +118,3 @@ class ToDoRepository {
         db?.close()
     }
 }
-

@@ -8,11 +8,11 @@ class ToDoModel {
     
     var toDo_id : Int?
     var toDo_title : String?
-    var isDone: Bool = false
+    var isDone: Int = 0
     
     init () {}
     
-    init(toDo_id: Int?, toDo_title: String?, isDone: Bool = false) {
+    init(toDo_id: Int?, toDo_title: String?, isDone: Int = 0) {
         self.toDo_id = toDo_id
         self.toDo_title = toDo_title
         self.isDone = isDone
