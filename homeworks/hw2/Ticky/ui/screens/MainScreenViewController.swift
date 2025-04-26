@@ -23,10 +23,7 @@ class MainScreenViewController: UIViewController {
         
         setDelegetesAndDataSources()
         createMockData()
-    }
-    
-    @IBAction func addButtonClicked(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "toSave", sender: nil)
+        setGestureRecognizers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +51,14 @@ class MainScreenViewController: UIViewController {
         }
     }
     
+    @IBAction func addButtonClicked(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "toSave", sender: nil)
+    }
+    
+    @objc func didTapTableView() {
+        searchBar.endEditing(true)
+    }
+    
     func setDelegetesAndDataSources() {
         toDosTableView.delegate = self
         toDosTableView.dataSource = self
@@ -68,6 +73,12 @@ class MainScreenViewController: UIViewController {
         toDosList.append(toDo2)
         toDosList.append(toDo3)
     }
+    
+    func setGestureRecognizers() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapTableView))
+        toDosTableView.addGestureRecognizer(tapGestureRecognizer)
+    }
+
 }
 
 extension MainScreenViewController: UISearchBarDelegate {
